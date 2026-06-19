@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+<h2>Checkout</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input type="text"
+name="name"
+class="form-control mb-3"
+placeholder="Full Name"
+required>
+
+<input type="text"
+name="phone"
+class="form-control mb-3"
+placeholder="Phone"
+required>
+
+<textarea
+name="address"
+class="form-control mb-3"
+placeholder="Address"
+required>
+</textarea>
+
+<input type="text"
+name="city"
+class="form-control mb-3"
+placeholder="City"
+required>
+
+<h3>
+
+Grand Total :
+
+₹{{total}}
+
+</h3>
+
+<button class="btn btn-success">
+
+Place Order
+
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

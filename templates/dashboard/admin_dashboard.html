@@ -1,0 +1,159 @@
+{% extends 'dashboard/admin_base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>Admin Dashboard</h2>
+
+<div class="row mt-4">
+
+<div class="col-md-2">
+
+<div class="card bg-primary text-white">
+
+<div class="card-body">
+
+<h3>{{total_vendors}}</h3>
+
+Vendors
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-2">
+
+<div class="card bg-success text-white">
+
+<div class="card-body">
+
+<h3>{{total_customers}}</h3>
+
+Customers
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-2">
+
+<div class="card bg-info text-white">
+
+<div class="card-body">
+
+<h3>{{total_products}}</h3>
+
+Products
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-2">
+
+<div class="card bg-warning">
+
+<div class="card-body">
+
+<h3>{{total_orders}}</h3>
+
+Orders
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-2">
+
+<div class="card bg-danger text-white">
+
+<div class="card-body">
+
+<h5>
+
+₹{{total_revenue}}
+
+</h5>
+
+Revenue
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<hr>
+
+<h3>Pending Vendors</h3>
+
+<table class="table table-bordered">
+
+<tr>
+
+<th>Store</th>
+<th>GST</th>
+
+</tr>
+
+{% for vendor in pending_vendors %}
+
+<tr>
+
+<td>{{vendor.store_name}}</td>
+
+<td>{{vendor.gst_number}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<hr>
+
+<h3>Recent Orders</h3>
+
+<table class="table table-bordered">
+
+<tr>
+
+<th>ID</th>
+<th>Customer</th>
+<th>Total</th>
+<th>Status</th>
+
+</tr>
+
+{% for order in recent_orders %}
+
+<tr>
+
+<td>#{{order.id}}</td>
+
+<td>{{order.customer}}</td>
+
+<td>₹{{order.total_amount}}</td>
+
+<td>{{order.status}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+{% endblock %}

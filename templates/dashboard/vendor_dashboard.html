@@ -1,0 +1,131 @@
+{% extends 'dashboard/vendor_base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>
+
+Vendor Dashboard
+
+</h2>
+
+<div class="row mt-4">
+
+<div class="col-md-4">
+
+<div class="card bg-primary text-white">
+
+<div class="card-body">
+
+<h4>
+
+{{total_products}}
+
+</h4>
+
+<p>
+
+Total Products
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card bg-success text-white">
+
+<div class="card-body">
+
+<h4>
+
+{{total_orders}}
+
+</h4>
+
+<p>
+
+Total Orders
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card bg-warning text-dark">
+
+<div class="card-body">
+
+<h4>
+
+₹{{revenue}}
+
+</h4>
+
+<p>
+
+Revenue
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<hr>
+
+<h3>
+
+Low Stock Products
+
+</h3>
+
+<table class="table table-bordered">
+
+<tr>
+
+<th>Name</th>
+
+<th>Stock</th>
+
+</tr>
+
+{% for p in low_stock %}
+
+<tr>
+
+<td>
+
+{{p.name}}
+
+</td>
+
+<td>
+
+{{p.stock}}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+{% endblock %}

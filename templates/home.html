@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+<h2>Categories</h2>
+
+<div class="row">
+
+{% for category in categories %}
+
+<div class="col-md-3 mb-3">
+
+<div class="card">
+
+{% if category.image %}
+
+<img src="{{category.image.url}}"
+height="200">
+
+{% endif %}
+
+<div class="card-body">
+
+<h5>
+
+{{category.name}}
+
+</h5>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<hr>
+
+<h2>Featured Products</h2>
+
+<div class="row">
+
+{% for p in featured_products %}
+
+<div class="col-md-3 mb-4">
+
+<div class="card">
+
+<img src="{{p.image.url}}"
+height="250">
+
+<div class="card-body">
+
+<h5>
+{{p.name}}
+</h5>
+
+<h6>
+
+₹
+
+{% if p.discount_price > 0 %}
+{{p.discount_price}}
+<del>
+{{p.price}}
+</del>
+{% else %}
+{{p.price}}
+{% endif %}
+
+</h6>
+
+<a href="{% url 'product_detail' p.id %}"
+class="btn btn-primary">
+
+View Product
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<hr>
+
+<h2>Latest Products</h2>
+
+<div class="row">
+
+{% for p in latest_products %}
+
+<div class="col-md-3 mb-4">
+
+<div class="card">
+
+<img src="{{p.image.url}}"
+height="250">
+
+<div class="card-body">
+
+<h5>
+{{p.name}}
+</h5>
+
+<h6>
+
+₹
+
+{{p.price}}
+
+</h6>
+
+<a href="{% url 'product_detail' p.id %}"
+class="btn btn-success">
+
+Details
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+{% endblock %}
