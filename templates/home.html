@@ -64,14 +64,13 @@ height="250">
 
 ₹
 
-{% if p.discount_price > 0 %}
-
-{{p.discount_price}}
+{% if product.discount_price > 0 %}
+{{product.discount_price}}
 <del>
-{{p.price}}
+{{product.price}}
 </del>
 {% else %}
-{{p.price}}
+{{product.price}}
 {% endif %}
 
 </h6>
